@@ -47,6 +47,13 @@ function EquipmentTable({ equipment , onEdit}) {
 
                     <th>Actions</th>
 
+                    <th>Location</th>
+
+                    <th>Serial Number </th>
+
+                    <th>Description </th>
+
+
                 </tr>
 
             </thead>
@@ -66,6 +73,12 @@ function EquipmentTable({ equipment , onEdit}) {
                             <td>{item.Quantity}</td>
 
                             <td>{item.Status}</td>
+
+                            <td>{item.Location}</td>
+                           
+                           <td>{item.SerialNumber}</td>
+                           
+                           <td>{item.Description}</td>
 
                             <td>
 

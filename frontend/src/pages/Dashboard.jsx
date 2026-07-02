@@ -61,20 +61,20 @@ function Dashboard() {
                 />
 
                 <DashboardCards
-                    title="Available"
-                    count={dashboard.Available}
+                    title="Active"
+                    count={dashboard.Active}
                     color="success"
                 />
 
                 <DashboardCards
-                    title="In Use"
-                    count={dashboard.InUse}
+                    title="Under Maintenance"
+                    count={dashboard.UnderMaintenance}
                     color="warning"
                 />
 
                 <DashboardCards
-                    title="Maintenance"
-                    count={dashboard.Maintenance}
+                    title="Decommissioned"
+                    count={dashboard.Decommissioned}
                     color="danger"
                 />
 

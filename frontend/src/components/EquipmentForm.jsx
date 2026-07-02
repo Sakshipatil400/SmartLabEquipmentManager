@@ -3,19 +3,16 @@ import { addEquipment, updateEquipment } from "../services/equipmentService";
 
 function EquipmentForm({ onAdded ,editData}) {
     
-    const [formData, setFormData] = useState({
-
-        EquipmentName: "",
-
-        EquipmentType: "",
-
-        Quantity: "",
-
-        Status: "Available",
-
-        PurchaseDate: ""
-
-    });
+  const [formData, setFormData] = useState({
+    EquipmentName: "",
+    EquipmentType: "",
+    Location: "",
+    SerialNumber: "",
+    Description: "",
+    Quantity: "",
+    Status: "Active",
+    PurchaseDate: ""
+});
    useEffect(() => {
 
     if (editData) {
@@ -135,23 +132,62 @@ else {
 
                 <label>Equipment Type</label>
 
-                <input
-
-                    type="text"
-
-                    name="EquipmentType"
-
-                    className="form-control"
-
-                    value={formData.EquipmentType}
-
-                    onChange={handleChange}
-
-                    required
-
-                />
+                <select
+    name="EquipmentType"
+    className="form-select"
+    value={formData.EquipmentType}
+    onChange={handleChange}
+    required
+>
+    <option value="">Select Type</option>
+    <option>CNC Machine</option>
+    <option>IoT Sensor</option>
+    <option>Automation Trainer</option>
+    <option>PLC Module</option>
+    <option>Hydraulic System</option>
+    <option>Pneumatic System</option>
+    <option>Electrical Panel</option>
+</select>
 
             </div>
+
+            <div className="mb-3">
+    <label>Location</label>
+
+    <input
+        type="text"
+        name="Location"
+        className="form-control"
+        value={formData.Location}
+        onChange={handleChange}
+        required
+    />
+</div>
+
+<div className="mb-3">
+    <label>Serial Number</label>
+
+    <input
+        type="text"
+        name="SerialNumber"
+        className="form-control"
+        value={formData.SerialNumber}
+        onChange={handleChange}
+        required
+    />
+</div>
+
+<div className="mb-3">
+    <label>Description</label>
+
+    <textarea
+        name="Description"
+        className="form-control"
+        rows="3"
+        value={formData.Description}
+        onChange={handleChange}
+    />
+</div>
 
             <div className="mb-3">
 
@@ -191,11 +227,9 @@ else {
 
                 >
 
-                    <option>Available</option>
-
-                    <option>In Use</option>
-
-                    <option>Maintenance</option>
+                    <option>Active</option>
+<option>Under Maintenance</option>
+<option>Decommissioned</option>
 
                 </select>
 

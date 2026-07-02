@@ -52,39 +52,41 @@ async function addEquipment(req, res) {
     try {
 
         const {
-
-            EquipmentName,
-            EquipmentType,
-            Quantity,
-            Status,
-            PurchaseDate
-
-        } = req.body;
-
+    EquipmentName,
+    EquipmentType,
+    Location,
+    SerialNumber,
+    Description,
+    Quantity,
+    Status,
+    PurchaseDate
+} = req.body;
         await sql.query`
 
-        INSERT INTO Equipment
+       INSERT INTO Equipment
+(
+    EquipmentName,
+    EquipmentType,
+    Location,
+    SerialNumber,
+    Description,
+    Quantity,
+    Status,
+    PurchaseDate
+)
 
-        (
-            EquipmentName,
-            EquipmentType,
-            Quantity,
-            Status,
-            PurchaseDate
-        )
-
-        VALUES
-
-        (
-            ${EquipmentName},
-            ${EquipmentType},
-            ${Quantity},
-            ${Status},
-            ${PurchaseDate}
-
-        )
-        `;
-
+VALUES
+(
+    ${EquipmentName},
+    ${EquipmentType},
+    ${Location},
+    ${SerialNumber},
+    ${Description},
+    ${Quantity},
+    ${Status},
+    ${PurchaseDate}
+)
+`;
         res.json({
 
             message: "Equipment Added Successfully"
@@ -107,35 +109,41 @@ async function updateEquipment(req, res) {
 
         const id = req.params.id;
 
-        const {
-
-            EquipmentName,
-            EquipmentType,
-            Quantity,
-            Status,
-            PurchaseDate
-
-        } = req.body;
-
+       const {
+    EquipmentName,
+    EquipmentType,
+    Location,
+    SerialNumber,
+    Description,
+    Quantity,
+    Status,
+    PurchaseDate
+} = req.body;
         await sql.query`
 
         UPDATE Equipment
 
-        SET
+SET
 
-        EquipmentName=${EquipmentName},
+EquipmentName=${EquipmentName},
 
-        EquipmentType=${EquipmentType},
+EquipmentType=${EquipmentType},
 
-        Quantity=${Quantity},
+Location=${Location},
 
-        Status=${Status},
+SerialNumber=${SerialNumber},
 
-        PurchaseDate=${PurchaseDate}
+Description=${Description},
 
-        WHERE EquipmentId=${id}
+Quantity=${Quantity},
 
-        `;
+Status=${Status},
+
+PurchaseDate=${PurchaseDate}
+
+WHERE EquipmentId=${id}
+
+`;
 
         res.json({
 
