@@ -111,11 +111,11 @@ async function handleFilter(value) {
 
             <option value="">All Status</option>
 
-            <option>Available</option>
+            <option>Active</option>
 
-            <option>In Use</option>
+            <option>Under Maintenance</option>
 
-            <option>Maintenance</option>
+            <option>Decommissioned</option>
 
         </select>
 

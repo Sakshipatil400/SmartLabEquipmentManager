@@ -91,9 +91,21 @@ function EquipmentTable({ equipment , onEdit}) {
 
 </button>
 
-                                <button
+                              
+
+<button
     className="btn btn-danger btn-sm"
-    onClick={() => handleDelete(item.EquipmentId)}
+    onClick={() => {
+
+        const confirmDelete = window.confirm(
+            "Are you sure you want to delete this equipment?"
+        );
+
+        if (confirmDelete) {
+            handleDelete(item.EquipmentId);
+        }
+
+    }}
 >
     Delete
 </button>

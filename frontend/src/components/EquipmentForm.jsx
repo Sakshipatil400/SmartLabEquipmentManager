@@ -196,7 +196,7 @@ else {
                 <input
 
                     type="number"
-
+                    min="1"
                     name="Quantity"
 
                     className="form-control"
